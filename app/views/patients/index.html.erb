@@ -1,0 +1,9 @@
+<h1>  Patients </h1>
+<hr>
+<ul>
+<% @patients.each do |patient| %>
+    <% apps = Appointment.all.select{ |a| patient.id == a.patient_id} %>
+   
+    <li>Name: <%= link_to patient.name, patient_path(patient) %> Number of Appointments: <%= apps.count %> </li>
+<% end %>
+</ul>
